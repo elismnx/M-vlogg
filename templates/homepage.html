@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulida</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.53/wavesurfer.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/styles/icons/all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/styles/style.css'  %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/styles/layout.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/styles/framework.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'layout/styles/fontawesome-4.50.min.css' %}" media="screen">
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

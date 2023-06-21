@@ -1,0 +1,38 @@
+{% load static %}
+<div class="wrapper row1">
+    <header id="header" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <div id="logo" class="fl_left">
+        <h1><a href="{% url 'index' %}">Maulida</a></h1>
+      </div>
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li 
+          {% if request.get_full_path == "/" %}
+                            class="active"
+                            {% endif %}
+            ><a href="{% url 'index' %}">Главная</a></li>
+          <li><a class="drop" href="#">Книги</a>
+            <ul>
+              <li><a href="{% url 'gallery' %}">Книги</a></li>
+              <li><a href="{% url 'full-width' %}">Отзывы</a></li>
+              <li><a href="{% url 'audio' %}">Подкасты</a></li>
+              <li><a href="{% url 'video' %}">Видео</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+      />
+
+      <!-- ################################################################################################ -->
+    </header>
+  </div>

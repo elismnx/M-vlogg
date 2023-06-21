@@ -1,0 +1,103 @@
+{% extends 'homepage.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'pobabini/headers/baseheaders.html' %}
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .video-title {
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: -40px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-grid">
+            {%for item in rows%}
+            <div class="video-container" style="">
+                <video id="my-video" src="{{item.video.url}}" style="position: static;" type='video/mp4;' controls data-video-url="{{ video_url }}">
+                    <source src="{{item.video.url}}" >
+                </video> 
+                <div style="color: black; margin: 0;" class="video-title"><h2 style="text-transform: lowercase; font-family: 'Barlow Condensed';">{{ item.title }}</h2></div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+    {% include 'pobabini/footers/basefooters.html' %}
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear"> 
+          <p class="fl_left">Авторское право &copy; 2023 - Все права защищены - <a href="https://www.instagram.com/itrun.osh/">It-RUN</a></p>
+        </div>
+      </div>
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <script>
+         var videoUrl = document.getElementById('my-video').getAttribute('data-video-url');
+
+function playVideo() {
+  var video = document.getElementById('my-video');
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', videoUrl, true);
+  xhr.responseType = 'arraybuffer';
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var bytes = new Uint8Array(xhr.response);
+      var blob = new Blob([bytes], { type: 'video/mp4' });
+
+      video.src = URL.createObjectURL(blob);
+      video.play();
+        }
+    };
+xhr.setRequestHeader('Range', 'bytes=0-'); // Устанавливаем заголовок Range для запроса на диапазон байтов
+xhr.send();
+}
+    </script>
+{% include 'pobabini/scripts/basescripts.html' %}
+{% endblock %}

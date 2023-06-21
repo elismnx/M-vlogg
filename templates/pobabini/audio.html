@@ -1,0 +1,251 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'pobabini/headers/baseheaders.html' %}
+  <style>
+    body {
+  font-family: "Arial", sans-serif;
+}
+
+.audio__first-link .heading {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.audio__first-link footer {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #999999;
+  font-size: 12px;
+  font-style: italic;
+}
+
+    #playlist {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.audio__first-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.audio__first-link figure {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.audio__first-link a {
+  margin-right: 10px;
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.audio__first-link a i {
+  font-size: 16px;
+}
+
+.audio__first-link .heading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.audio__first-link h1.heading {
+  display: none;
+}
+
+.audio__first-link audio {
+  margin-left: 20px;
+  width: 200px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audio__first-link audio::-webkit-media-controls-panel {
+  background-color: #f2f2f2;
+  border: none;
+}
+
+.audio__first-link audio::-webkit-media-controls-play-button {
+  color: #333333;
+}
+
+.audio__first-link audio::-webkit-media-controls-time-remaining-display,
+.audio__first-link audio::-webkit-media-controls-current-time-display {
+  color: #333333;
+  font-size: 12px;
+}
+
+.audio__first-link audio::-webkit-media-controls-volume-slider {
+  background-color: #f2f2f2;
+}
+
+.audio__first-link audio::-webkit-media-controls-seek-back-button,
+.audio__first-link audio::-webkit-media-controls-seek-forward-button {
+  color: #333333;
+  font-size: 14px;
+}
+
+.audio__first-link footer {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.audio__first-link:hover {
+  background-color: #e6e6e6;
+}
+
+.audio__first-link a:hover {
+  color: #ff6b6b;
+}
+
+.audio__first-link audio:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff6b6b;
+}
+
+.audio__first-link audio::-webkit-media-controls-play-button:before {
+  content: "\f04c";
+  font-family: "Font Awesome 5 Free";
+}
+
+.audio__first-link audio::-webkit-media-controls-pause-button:before {
+  content: "\f04b";
+  font-family: "Font Awesome 5 Free";
+}
+
+  </style>
+    <div class="page-container">
+      <div class="content-wrap">
+        <main>
+          <section class="audio">
+            <div class="audio__left">
+              <div class="audio__content">
+                <div class="audio__i">
+                  <img
+                    src="{% static 'images/demo/e4f483b4-2ac7-45ba-87fe-aa24533886c1_600.jpg' %}"
+                    alt=""
+                  />
+                  <h3 class="audio__i-title">Я справляюсь</h3>
+                  <p class="audio__i-name">Maulida Imanova</p>
+                  <div class="audio__release">
+                    <p class="audio__release-text">8 выпусков</p>
+                    <p class="audio__release-star">4.9</p>
+                    <span></span>
+                    <p class="audio__release-number">558</p>
+                  </div>
+                </div>
+                <div class="audio__desc">
+                  <p class="audio__desc-text">
+                    Подкаст девочки в своих 20-х, которая разбирается с жизнью
+                    на ходу, и решила делиться этим опытом. Документируя свой
+                    путь становления в реальном времени
+                  </p>
+                  <p class="audio__desc-personal">Личные дневники</p>
+                  <div class="audio__wrap">
+                    <a href="#">
+                      <img
+                        src="https://spravlyayus.mave.digital/_nuxt/img/apple-podcasts.1dd0e61.svg"
+                        alt=""
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="https://spravlyayus.mave.digital/_nuxt/img/apple-podcasts.1dd0e61.svg"
+                        alt=""
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="https://spravlyayus.mave.digital/_nuxt/img/apple-podcasts.1dd0e61.svg"
+                        alt=""
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="https://spravlyayus.mave.digital/_nuxt/img/apple-podcasts.1dd0e61.svg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="audio__right">
+              <div class="audio__message">
+                <a href="https://www.instagram.com/stephencurry30/" target="_blank">Написать мне</a>
+              </div>
+              <div class="audio__tabs">
+                <div class="audio__tabs-head">
+                  <button id="tabsBtn" href="#" data-tab="#tab_1">
+                    Выпуски подкаста 8
+                  </button>
+                  <button href="#" id="tabsBtn" data-tab="#tab_2">
+                    Описание подкаста
+                  </button>
+                </div>
+                <div class="audio__tabs-body">
+                  <div class="audio__first" id="tab_1">
+                    <h3 class="audio__first-title">Все выпуски</h3>
+                    {% for item in rows %}
+                    <div href="" id="playlist" class="audio__first-link" style="padding: 15px; width: 100%; " controls>
+                        <div class="" style="display: flex; flex-direction: column;">
+                          <div style="display: flex; margin-bottom: 10px; ">
+                            <a href="#"><i class="fa fa-paperclip"></i></a>
+                          <h6 class="heading">{{item.title}}</h6>
+                          </div>
+                          <audio style="width: 300px;" src="{{ item.audio.url }}" controls></audio>
+                        </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="audio__first" id="tab_2">
+                    <p class="audio__last-text">
+                      Подкаст девочки в своих 20-х, которая разбирается с жизнью
+                      на ходу, и решила делиться этим опытом. Документируя свой
+                      путь становления в реальном времени уже несколько лет на
+                      своем канале, я решила найти еще один способ рассказывать
+                      об открытиях взросления в аудио-формате. В этом
+                      соло-подкасте я буду обсуждать взросление и становление в
+                      этом непростом мире, построение крепких отношений с собой
+                      и окружающими, и открытия простой жизни. Верю, что слушая
+                      этот подкаст, нам удастся каждый раз напоминать самим
+                      себе: "я справляюсь". Найти меня: youtube: IM maulida
+                      instagram: @im_maulida tg: IM maulida
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="wrapper row5">
+      <div id="copyright" class="hoc clear"> 
+        <p class="fl_left">Copyright &copy; 2016 - All Rights Reserved - <a href="#">Domain Name</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+      </div>
+    </div>
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    {% include 'pobabini/scripts/basescripts.html' %}
+    {% endblock %}

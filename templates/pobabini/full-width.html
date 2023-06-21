@@ -1,0 +1,69 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+<body id="top">
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
+  {% include 'pobabini/headers/baseheaders.html' %}
+</div>
+<!-- End Top Background Image Wrapper -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <div class="content"> 
+        <div id="comments">
+          <h2>Comments</h2>
+          <ul>
+            {% for item in rows %}
+            <li>
+              <article>
+                <header>
+                  <figure class="avatar"><img src="../images/demo/avatar.png" alt=""></figure>
+                  <address>
+                  By <a href="#">{{item.name}}</a>
+                  </address>
+                  <time datetime="2045-04-06T08:15+00:00">{{item.created}}<sup></sup></time>
+                </header>
+                <div class="comcont">
+                  <p>{{item.description}}</p>
+                </div>
+              </article>
+            </li>
+            {% endfor %}
+            
+          </ul>
+          <h2>Оставьте ваш отзыв</h2>
+          <form action="#" method="post">
+            {% csrf_token %}
+            <div class="one_third first">
+              <label for="name">Имя пользователя <span>*</span></label>
+              <input type="text" name="name" id="name" value="" size="22" required>
+            </div>
+            <div class="one_third">
+              <label for="email">Электронный адрес <span>*</span></label>
+              <input type="email" name="email" id="email" value="" size="22" >
+            </div>
+            <div class="block clear">
+              <label for="comment">Ваш комментарий</label>
+              <textarea name="comment" id="comment" cols="25" rows="10" required></textarea>
+            </div>
+            <div>
+              <button type="submit" name="button">Отправить</button>
+            </div>
+          </form>
+        </div>
+    </div>
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+{% include 'pobabini/footers/basefooters.html' %}
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <p class="fl_left">Авторское право &copy; 2023 - Все права защищены - <a href="https://www.instagram.com/itrun.osh/">It-RUN</a></p>
+  </div>
+</div>
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+{% include 'pobabini/scripts/basescripts.html' %}
+</body>
+{% endblock %}
