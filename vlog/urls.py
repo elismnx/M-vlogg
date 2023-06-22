@@ -14,6 +14,7 @@ urlpatterns = [
     path('audio', audio, name='audio'),
     path('video', video, name='video'),
     path('basic-grid', basic_grid, name='basic-grid'),
+    path('video-detail/<int:id>/',video_details,name='video-details')
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

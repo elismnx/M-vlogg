@@ -73,7 +73,7 @@
   margin-left: 20px;
   width: 200px;
   background-color: #ffffff;
-  border-radius: 3px;
+  border-radius: 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -192,7 +192,7 @@
               <div class="audio__message">
                 <a href="https://www.instagram.com/stephencurry30/" target="_blank">Написать мне</a>
               </div>
-              <div class="audio__tabs">
+              <div class="audio__tabs" style="margin-bottom: 20px;">
                 <div class="audio__tabs-head">
                   <button id="tabsBtn" href="#" data-tab="#tab_1">
                     Выпуски подкаста 8
@@ -207,9 +207,9 @@
                     {% for item in rows %}
                     <div href="" id="playlist" class="audio__first-link" style="padding: 15px; width: 100%; " controls>
                         <div class="" style="display: flex; flex-direction: column;">
-                          <div style="display: flex; margin-bottom: 10px; ">
+                          <div style="display: flex; margin-bottom: 10px; align-items: center; ">
                             <a href="#"><i class="fa fa-paperclip"></i></a>
-                          <h6 class="heading">{{item.title}}</h6>
+                          <h6 class="heading" style="text-transform: lowercase; font-family: 'Barlow Condensed';">{{item.title}}</h6>
                           </div>
                           <audio style="width: 300px;" src="{{ item.audio.url }}" controls></audio>
                         </div>

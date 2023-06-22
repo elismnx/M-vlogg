@@ -1,0 +1,110 @@
+{% extends 'homepage.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'pobabini/headers/baseheaders.html' %}
+
+<style>
+    /* Стили для заголовка */
+    h1 {
+      font-size: 22px;
+      color: #ffffff;
+      font-weight: normal;
+      margin: 0;
+      padding: 10px;
+      background-color: #333333;
+    }
+  
+    /* Стили для видео */
+    video {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+    }
+  
+    /* Стили для описания */
+    p {
+      font-size: 14px;
+      color: #606060;
+      margin-top: 10px;
+    }
+  
+    /* Стили для счетчиков */
+    #likeCount, #dislikeCount {
+      font-size: 14px;
+      color: #909090;
+      margin-right: 10px;
+    }
+  
+    /* Стили для кнопок лайка и дизлайка */
+    #likeButton, #dislikeButton {
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color:  #909090;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 16px;
+      color: #fff;
+    }
+  
+    /* Стили для кнопок при наведении */
+    #likeButton:hover, #dislikeButton:hover {
+      background-color: #e0e0e0;
+    }
+  .like-btns{
+    display: flex;
+
+  }
+    /* Стили для блока с количеством просмотров */
+    #viewCount {
+      font-size: 14px;
+      color: #909090;
+      margin-top: 10px;
+    }
+  </style>
+  
+<body>
+  <h1>Название видео</h1>
+  <video src="путь_к_видеофайлу" controls></video>
+
+  <p>Описание видео</p>
+
+  <div class="like-btns">
+    <div>
+        <button id="likeButton">Лайк</button>
+        <span id="likeCount">0</span>
+      </div>
+    
+      <div>
+        <button id="dislikeButton">Диcлайк</button>
+        <span id="dislikeCount">0</span>
+      </div>
+  </div>
+
+  <div>
+    <span id="viewCount">0</span> просмотров
+  </div>
+
+  <script>
+    var likeButton = document.getElementById("likeButton");
+    var dislikeButton = document.getElementById("dislikeButton");
+    var likeCount = document.getElementById("likeCount");
+    var dislikeCount = document.getElementById("dislikeCount");
+    var viewCount = document.getElementById("viewCount");
+
+    // Обработчики событий для кнопок лайка и дизлайка
+    likeButton.addEventListener("click", function() {
+      likeCount.innerHTML = parseInt(likeCount.innerHTML) + 1;
+    });
+
+    dislikeButton.addEventListener("click", function() {
+      dislikeCount.innerHTML = parseInt(dislikeCount.innerHTML) + 1;
+    });
+
+    // Увеличение счетчика просмотров при каждом просмотре видео
+    var initialViewCount = parseInt(viewCount.innerHTML);
+    viewCount.innerHTML = initialViewCount + 1;
+  </script>
+{% include 'pobabini/footers/basefooters.html' %}
+{% endblock %}

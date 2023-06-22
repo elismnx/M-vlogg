@@ -87,3 +87,10 @@ def video(request):
         'setting' : settings,
     }
     return render(request, 'pobabini/video.html', context)
+
+def video_details(request,id):
+    video = Video.objects.get(id=id)
+    context={
+        'video' : video,
+    }
+    return render(request,'pobabini/video-details.html',context)

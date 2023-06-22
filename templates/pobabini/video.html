@@ -61,14 +61,14 @@
     <div class="container">
         <div class="video-grid">
             {%for item in rows%}
-            <div class="video-container" style="">
+            <div class="video-container">
                 <video id="my-video" src="{{item.video.url}}" style="position: static;" type='video/mp4;' controls data-video-url="{{ video_url }}">
                     <source src="{{item.video.url}}" >
                 </video> 
-                <div style="color: black; margin: 0;" class="video-title"><h2 style="text-transform: lowercase; font-family: 'Barlow Condensed';">{{ item.title }}</h2></div>
+                <div style="color: black; margin: 0;" class="video-title"><h2 style="text-transform: lowercase; font-family: 'Barlow Condensed';"> <a href="{% url 'video-details' setting.id %}">{{ item.title }} </a></h2></div>
             </div>
             {%endfor%}
-        </div>
+        </div>  
     </div>
 </body>
     {% include 'pobabini/footers/basefooters.html' %}

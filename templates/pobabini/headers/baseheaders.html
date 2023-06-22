@@ -1,7 +1,6 @@
 {% load static %}
 <div class="wrapper row1">
     <header id="header" class="hoc clear"> 
-      <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
         <h1><a href="{% url 'index' %}">Maulida</a></h1>
       </div>
@@ -12,12 +11,12 @@
                             class="active"
                             {% endif %}
             ><a href="{% url 'index' %}">Главная</a></li>
-          <li><a class="drop" href="#">Книги</a>
+          <li><a class="drop" href="#">Страницы</a>
             <ul>
               <li><a href="{% url 'gallery' %}">Книги</a></li>
-              <li><a href="{% url 'full-width' %}">Отзывы</a></li>
               <li><a href="{% url 'audio' %}">Подкасты</a></li>
               <li><a href="{% url 'video' %}">Видео</a></li>
+              <li><a href="{% url 'full-width' %}">Отзывы</a></li>
             </ul>
           </li>
         </ul>
@@ -33,6 +32,5 @@
         href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
       />
 
-      <!-- ################################################################################################ -->
     </header>
   </div>
